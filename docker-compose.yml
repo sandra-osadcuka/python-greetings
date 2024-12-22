@@ -11,9 +11,9 @@ services:
     container_name: greetings-app-stg
     ports:
       - 7002:3000
-  greetings-app-prd:
+  greetings-app-prod:
     build: .
     image: sandraosadcuka/python-greetings-app:latest
-    container_name: greetings-app-prd
+    container_name: greetings-app-prod
     ports:
       - 7003:3000
