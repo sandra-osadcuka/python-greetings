@@ -51,8 +51,8 @@ def buildDockerImage(){
 }
 
 def deploy(String environment){
-    echo "Pulling lates python-greetings-app from repository.."
-    sh "docker pull sandraosadcuka/python-greetings-app"
+    echo "Pulling latest python-greetings-app from repository.."
+    sh "docker pull sandraosadcuka/python-greetings-app:latest"
     
     echo "Deploying Python microservice to ${environment} environment.."
     sh "docker compose stop greetings-app-${environment}"
@@ -62,6 +62,6 @@ def deploy(String environment){
 
 def runApiTests(String environment){
     echo "API tests triggered on ${environment} env..."
-    sh "docker pull sandraosadcuka/api-tests"
+    sh "docker pull sandraosadcuka/api-tests:latest"
     sh "docker run --network=host --rm sandraosadcuka/api-tests:latest run greetings greetings_${environment}"
 }
